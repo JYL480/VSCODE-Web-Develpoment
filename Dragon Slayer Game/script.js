@@ -19,9 +19,7 @@ const monsterNameText = document.querySelector("#monsterName");
 const monsterHealthText = document.querySelector("#monsterHealth");
 
 // All these are ID
-button1.onclick = goStore;
-button2.onclick = goCave;
-button3.onclick = fightDragon;
+
 
 // You will then use arrays index to access the few different objects within 
 const monsters = [
@@ -94,18 +92,21 @@ const locations = [
 		"button text": ["Go to town square", "Go to town square", "Go to town square"],
 		"button functions": [goTown, goTown, goTown],
 		text: 'The monster screams "Arg!" as it dies. You gain experience points and find gold.'
-	}
+	},
   {
     name:"lose",
     "button text":["Replay?","Replay?","Replay?"],
     "button functions":[restart,restart,restart],
-    text='L';
+    text:'Take this L'
   }
 ]
-
+button1.onclick = goStore;
+button2.onclick = goCave;
+button3.onclick = fightDragon;
 
 function update(location){
   // we have to create objectts
+  monsterStats.style.display = "none";
   button1.innerText = location["button text"][0];
   button2.innerText = location["button text"][1];
   button3.innerText = location["button text"][2];
@@ -212,7 +213,12 @@ function attack(){
   if(health <=0){
     lose();
   }else if(monsterHealth<=0){
+    if(fighting === 2) //To have no type coercion
+    {
+      winGame();
+    }else{
     defeatMonster();
+    }
   }
 }
 function dodge(){
@@ -221,7 +227,7 @@ function dodge(){
 }
 
 function lose(){
-  
+  update(locations[5])
 }
 
 function defeatMonster(){
@@ -230,10 +236,24 @@ function defeatMonster(){
   xp += monsters[fighting].level;
   goldText.innerText = gold;
   xpText.innerText = xp;
-  monsterStats.style.display = "none";
+  
   update(locations[4]); // Something new 
 }
 
-// restart(){
-  
-// }
+function restart(){
+  // restart and change all the variables to the og
+  xp = 0;
+  health = 100;
+  gold = 150;
+  currentWeapon = 0;
+  inventory = ["stick"];
+  goldText.innerText = gold;
+  healthText.innerText = health;
+  xpText.innerText = xp;
+  goTown();
+
+}
+
+function winGame(){
+
+}
