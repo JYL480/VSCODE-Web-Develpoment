@@ -1,0 +1,17 @@
+{
+  "dependencies": {
+    "firebase": "^9.23.0"
+  },
+  "name": "delete",
+  "version": "1.0.0",
+  "main": "webpack.config.js",
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": ""
+}

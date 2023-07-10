@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="english">
+  <head>
+    <title>Home</title>
+    <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="landing_page.css">
+  </head>
+
+  <body>
+
+    <div class="header">
+
+      <a href = "landing-page.html">
+          <img class="logo" src="/src/index_page/external/logo.png">
+      </a>
+      <div class="menuBar">
+          
+          <div class="reservationButton">Reservation</div>
+          <a class="menuButton" href="/src/index_page/index.html">
+              <div  >Menu</div>
+          </a>
+          
+          <div class="location">Location</div>
+
+          <div class="action">
+
+            <div class="profile" onclick="menuToggle();">
+              <i id="profilePic" class="fa-solid fa-user"></i>
+            </div>
+    
+            <div class="menuu">
+                <h3 class="userAccountWord">
+                  <div class='userNameClass'id="userName"></div>
+                </h3>
+                <ul>
+                    <li>
+                      <i  id='iconsMenu'class="fa-solid fa-user"></i>
+                        <a id='logOut'href="#">My Profile</a>
+                    </li>
+                    <li>
+                        <i  id='iconsMenu'class="fa-solid fa-cart-shopping"></i>
+                        <a href="#">MyOrders</a>
+                    </li>
+                    <li>
+              
+                        <i id='iconsMenu1' class="fa-solid fa-right-from-bracket"></i>
+                        <span id="logOut"class="logOutThing" style="cursor: pointer;">Log Out</span>
+                  
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <script>
+            function menuToggle(){
+                const toggleMenu = document.querySelector('.menuu');
+                toggleMenu.classList.toggle('active')
+            }
+        </script>
+      </div>
+    </div>
+
+    <div class="backgroundImage">
+      <img class="backgroundImage" src = "/src/index_page/external/image97249-89lh-2000w.png">
+    </div>
+
+    <div class="contactUs">
+      
+      <div class="wordings">
+        
+
+        
+      </div>
+
+      <div class="icons">
+        <p>Get In Touch: +6512345678</p>
+          <div class="socials">
+          <p id='hello' class="socialMedia">Let's Get Social: 
+
+          <a class='instagramLink' href = '#'>
+            <i class="fa-brands fa-instagram"></i>   
+          </a>
+          <a class='facebookLink'href="#">
+            <i class="fa-brands fa-facebook"></i>
+          </a>
+          </div>
+
+        </p> 
+  
+
+      </div>
+
+    </div>
+
+    
+    <script src="/dist/landing_page.bundle.js"></script>
+  </body>
+
+</html> 
+    
+

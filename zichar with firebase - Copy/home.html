@@ -1,0 +1,72 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+
+      <div class="header">
+
+   
+        <div class="menuBar">
+            
+            <nav>
+              
+                    <img class="logo" src="/src/index_page/external/logo.png">
+                
+                <a href = "/">Home
+                </a>
+                
+                <a class="reservationButton" href="/reservation">Reservation</a>
+        
+                <a class="menuButton" href="/menu">Menu</a>
+                
+                <a class="location" href="/location">Location</a>
+        
+              </nav>
+  
+            <div class="action">
+  
+              <div class="profile" onclick="menuToggle();">
+                <i id="profilePic" class="fa-solid fa-user"></i>
+              </div>
+      
+              <div class="menuu">
+                  <h3 class="userAccountWord">
+                    <div class='userNameClass'id="userName"></div>
+                  </h3>
+                  <ul>
+                      <li>
+                        <i  id='iconsMenu'class="fa-solid fa-user"></i>
+                          <a id='logOut'href="#">My Profile</a>
+                      </li>
+                      <li>
+                          <i  id='iconsMenu'class="fa-solid fa-cart-shopping"></i>
+                          <a href="#">MyOrders</a>
+                      </li>
+                      <li>
+                
+                          <i id='iconsMenu1' class="fa-solid fa-right-from-bracket"></i>
+                          <span id="logOut"class="logOutThing" style="cursor: pointer;">Log Out</span>
+                    
+                      </li>
+                  </ul>
+              </div>
+          </div>
+          <script>
+              function menuToggle(){
+                  const toggleMenu = document.querySelector('.menuu');
+                  toggleMenu.classList.toggle('active')
+              }
+          </script>
+        </div>
+      </div>
+
+
+      <div id="content"></div>
+    
+      <script src="/server/router.js"></script>
+</body>
+</html>

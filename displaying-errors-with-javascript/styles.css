@@ -1,0 +1,94 @@
+/* I always reset all the html elements */
+*{
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+body{
+	font-family: sans-serif;
+	min-height: 100vh;
+	color: #555;
+}
+.page{
+	max-width: 1000px;
+	margin: 0 auto;
+}
+h1{
+	margin: 40px 0;
+	text-align: center;
+}
+form{
+	margin: 100px auto;
+	max-width: 400px;
+}
+label{
+	display: block;
+	padding-bottom: 5px;
+	position: relative;
+	padding-left: 5px;
+}
+label span{
+	position: absolute;
+	font-size: 14px;
+	padding-right: 5px;
+	/*font-style: italic;*/
+	color: #999;
+	right: 0;
+}
+input{
+	padding: 10px;
+	width:  100%;
+	margin-bottom: 10px;
+	border:  thin solid #d4d4d4;
+	font-size: 16px;
+	outline: none;
+	margin-bottom: 30px;
+}
+input:focus{
+	border-color: orange;
+}
+.error{
+	color: #af4242;
+	background-color: #fde8ec;
+	padding: 10px;
+	/*visibility: hidden;*/
+	display: none;
+}
+.error.display-error{
+	display:  block;
+	margin-bottom: 20px;
+	transform: translateY(-20px);
+}
+.success{
+	margin-bottom: 30px;
+	color: green;
+	background-color: #d2ffd2;
+	padding: 10px;
+	display: none;
+}
+.success.display-success{
+	display: block;
+}
+input[type=submit]:active{
+	background-color: #6c9bc3;
+	color: #fff;
+}
+
+form .gender{
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-column-gap: 10px;
+	margin-bottom: 20px;
+}
+form .gender input{
+	display: inline-block;
+	padding: 0 0;
+	margin-bottom: 0;
+	width:  auto;
+}
+form .gender p{
+	background-color: #f4f4f4;
+	padding: 10px;
+	border: thin solid #e4e4e4;
+}

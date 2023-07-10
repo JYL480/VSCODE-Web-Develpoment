@@ -1,0 +1,294 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" href="/src/index_page/index.css">
+        <script src="https://kit.fontawesome.com/92d70a2fd8.js" crossorigin="anonymous"></script>
+    </head>
+    <body class="">
+        
+
+    
+        <div class="container">
+            <header>
+                <h1>Menu</h1>
+                <div class="shopping">
+                    <img class='bag'src="/src/index_page/external/shopping.svg">      
+                    <span class="quantity">0</span>
+                </div>
+            </header>
+        </div>
+    
+            <div class="containerPictures">
+                <!-- This root is for the columns and rows for you pisctures -->
+                <!-- <div id="root"></div>  -->
+                <section class="layout">
+                    <div><img class="Stir Fry Eggplant" src = '/src/index_page/external/image47195-p483-300h.png'><p class="foodName">Stir Fry Eggplant</p>
+                        <p class="price">
+                            12
+                        </p> 
+                        <button onclick="addToCard(0)">Add To cart</button>
+                    </div>
+                    <div><img class="laLaImage" src = '/src/index_page/external/image87199-q9w5-300h.png'><p class="foodName">Hebal Lala Soup</p>
+                        <p class="price">
+                            12
+                        </p>
+                        <button onclick="addToCard(1)">Add To cart</button></div>
+                    <div><img class="SweetAndSour" src = '/src/index_page/external/image37203-68ga-300h.png'><p class="foodName">Logan Sweet & Sour Pork</p>
+                        <p class="price">
+                            12
+                        </p>
+                        <button onclick="addToCard(2)">Add To cart</button></div>
+                    <div><img class="blackPepper" src = '/src/index_page/external/image77207-9hk8-300h.png'><p class="foodName">Black Pepper Crab</p>
+                        <p class="price">
+                            12
+                        </p>
+                        <button onclick="addToCard(3)">Add To cart</button></div>
+                    <div><img class="ginsengHerbal" src = '/src/index_page/external/image67212-vbaa-300h.png'><p class="foodName">Ginseng Herbal Soup</p>
+                        <p class="price">
+                            12
+                        </p>
+                        <button onclick="addToCard(4)">Add To cart</button></div>
+                    <div><img class="garlicPrawns" src = '/src/index_page/external/image27216-tfc-300h.png'><p class="foodName">Signature Garlic Prawns</p>
+                        <p  class="price">
+                            12
+                        </p>
+                        <button onclick="addToCard(5)">Add To cart</button></div>
+                    <div><img class="tofu" src = '/src/index_page/external/image17220-ed6-300h.png'><p class="foodName">Signature Tofu</p>
+                        <p class="price">
+                            12
+                        </p>
+                        <button onclick="addToCard(6)">Add To cart</button></div>
+                    <div><img class="spinach" src = '/src/index_page/external/image57224-tsee-300h.png'><p class="foodName">3 Eggs Spinach</p>
+                        <p class="price">
+                            12
+                        </p>
+                        <button onclick="addToCard(7)">Add To cart</button></div>
+                </section>
+                </div>
+        
+        <div class="card">
+            <h1>Cart<button onclick="removeAll()" id="removeAll" class="removeAllButton">Remove All</button></h1>
+
+            <ul class="listCard">
+            </ul>
+            
+            <div class="checkOut">
+                <div class="total">$0</div>
+                <div id='parentElementId'class="closeShopping">Proceed To CheckOut</div>
+                <!-- <div class="proceedToCheckOut"></div> -->
+                
+                </div>
+            </div>
+        </div>
+    
+        
+
+        <form class="addDetails">
+            <h1 class="headerAddress">Input delivery details</h1>
+            <label for="phoneNumber">Phone Number:</label>
+            <input class='phoneNumber'type="number" name="phoneNumber" required><br>
+            <label for="streetName">Street Name:</label>
+            <input class='streetName'type="text" name="streetName" required><br>
+            <label for="postalCode">Postal Code:</label>
+            <input class='postalCode'type="text" name="postalCode" required><br>
+            <label for="others">Others:</label>
+            <input class='others'type="text" name="others" ><br>
+            
+            <button>Submit</button>
+        </form>
+
+
+        <script type="module" src="/dist/index.bundle.js"></script>
+        
+        <script src = "/src/index_page/index.js"></script>
+        
+        
+    </body>
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-app.js";
+        import {   getAuth,signOut,onAuthStateChanged } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-auth.js";
+        import {     collection,
+                    getFirestore, getDocs,
+                    serverTimestamp, addDoc, deleteDoc,
+                    onSnapshot,doc
+                } from "https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore.js";
+
+
+
+        const firebaseConfig = {
+          apiKey: "AIzaSyCa8m8RSFyN-cL__OyZXCEU8Bnslyl1AfE",
+          authDomain: "zi-char-project.firebaseapp.com",
+          databaseURL: "https://zi-char-project-default-rtdb.asia-southeast1.firebasedatabase.app",
+          projectId: "zi-char-project",
+          storageBucket: "zi-char-project.appspot.com",
+          messagingSenderId: "646748018366",
+          appId: "1:646748018366:web:325400ac3597ecbe4630ef",
+          measurementId: "G-GP3RKLHE8D"
+        };
+      
+        // Initialize Firebase
+        const app = initializeApp(firebaseConfig);
+        // const analytics = getAnalytics(app);
+        const auth = getAuth()
+        const user = auth.currentUser;
+
+        const db = getFirestore()
+
+        const foodOrders = document.querySelector(".closeShopping")
+        foodOrders.addEventListener('click', (e) => {
+        e.preventDefault()
+        orderList()
+        
+        const auth = getAuth()
+        const user = auth.currentUser;
+        // console.log(user.email)
+        if (user !== null) {
+            
+            const docRef_users = doc(db, "Users", user.email);
+            const coldRef_delivery = collection(docRef_users, "FoodOrder")
+            var foodName = document.getElementsByClassName('buttonAdd')
+            // console.log(user.email)
+                addDoc(coldRef_delivery, {
+                    foodOrder: foodName.subject.value,
+                    createdAt: serverTimestamp(),
+                    })
+            }
+        })
+
+        // const foodOrders1 = document.querySelector(".list .item .buttonAdd1")
+        // foodOrders1.addEventListener('click', (e) => {
+        // e.preventDefault()
+        
+        // const auth = getAuth()
+        // const user = auth.currentUser;
+        // if (user !== null) {
+        //     const docRef_users = doc(db, "Users", user.email);
+        //     const coldRef_delivery = collection(docRef_users, "FoodOrder")
+        //     var foodName = document.getElementsByClassName('buttonAdd1')
+        //         console.log(user.email)
+        //         addDoc(coldRef_delivery, {
+        //             foodOrder: foodName.subject.value,
+        //             createdAt: serverTimestamp(),
+        //             })
+        //     }
+        // })
+
+        // const foodOrders2 = document.querySelector(".list .item .buttonAdd2")
+        // foodOrders2.addEventListener('click', (e) => {
+        // e.preventDefault()
+        
+        // const auth = getAuth()
+        // const user = auth.currentUser;
+        // if (user !== null) {
+        //     const docRef_users = doc(db, "Users", user.email);
+        //     const coldRef_delivery = collection(docRef_users, "FoodOrder")
+        //     var foodName = document.getElementsByClassName('buttonAdd2')
+        //         console.log(user.email)
+        //         addDoc(coldRef_delivery, {
+        //             foodOrder: foodName.subject.value,
+        //             createdAt: serverTimestamp(),
+        //             })
+        //     }
+        // })
+
+        // const foodOrders3 = document.querySelector(".list .item .buttonAdd3")
+        // foodOrders3.addEventListener('click', (e) => {
+        // e.preventDefault()
+        
+        // const auth = getAuth()
+        // const user = auth.currentUser;
+        // if (user !== null) {
+        //     const docRef_users = doc(db, "Users", user.email);
+        //     const coldRef_delivery = collection(docRef_users, "FoodOrder")
+        //     var foodName = document.getElementsByClassName('buttonAdd3')
+        //         console.log(user.email)
+        //         addDoc(coldRef_delivery, {
+        //             foodOrder: foodName.subject.value,
+        //             createdAt: serverTimestamp(),
+        //             })
+        //     }
+        // })
+
+
+        // const foodOrders4 = document.querySelector(".list .item .buttonAdd4")
+        // foodOrders4.addEventListener('click', (e) => {
+        // e.preventDefault()
+        
+        // const auth = getAuth()
+        // const user = auth.currentUser;
+        // if (user !== null) {
+        //     const docRef_users = doc(db, "Users", user.email);
+        //     const coldRef_delivery = collection(docRef_users, "FoodOrder")
+        //     var foodName = document.getElementsByClassName('buttonAdd4')
+        //         console.log(user.email)
+        //         addDoc(coldRef_delivery, {
+        //             foodOrder: foodName.subject.value,
+        //             createdAt: serverTimestamp(),
+        //             })
+        //     }
+        // })
+
+        // const foodOrders5 = document.querySelector(".list .item .buttonAdd5")
+        // foodOrders5.addEventListener('click', (e) => {
+        // e.preventDefault()
+        
+        // const auth = getAuth()
+        // const user = auth.currentUser;
+        // if (user !== null) {
+        //     const docRef_users = doc(db, "Users", user.email);
+        //     const coldRef_delivery = collection(docRef_users, "FoodOrder")
+        //     var foodName = document.getElementsByClassName('buttonAdd5')
+        //         console.log(user.email)
+        //         addDoc(coldRef_delivery, {
+        //             foodOrder: foodName.subject.value,
+        //             createdAt: serverTimestamp(),
+        //             })
+        //     }
+        // })
+
+        // const foodOrders6 = document.querySelector(".list .item .buttonAdd6")
+        // foodOrders6.addEventListener('click', (e) => {
+        // e.preventDefault()
+        
+        // const auth = getAuth()
+        // const user = auth.currentUser;
+        // if (user !== null) {
+        //     const docRef_users = doc(db, "Users", user.email);
+        //     const coldRef_delivery = collection(docRef_users, "FoodOrder")
+        //     var foodName = document.getElementsByClassName('buttonAdd6')
+        //         console.log(user.email)
+        //         addDoc(coldRef_delivery, {
+        //             foodOrder: foodName.subject.value,
+        //             createdAt: serverTimestamp(),
+        //             })
+        //     }
+        // })
+
+        // const foodOrders7 = document.querySelector(".list .item .buttonAdd7")
+        // foodOrders7.addEventListener('click', (e) => {
+        // e.preventDefault()
+        
+        // const auth = getAuth()
+        // const user = auth.currentUser;
+        // if (user !== null) {
+        //     const docRef_users = doc(db, "Users", user.email);
+        //     const coldRef_delivery = collection(docRef_users, "FoodOrder")
+        //     var foodName = document.getElementsByClassName('buttonAdd7')
+        //         console.log(user.email)
+        //         addDoc(coldRef_delivery, {
+        //             foodOrder: foodName.subject.value,
+        //             createdAt: serverTimestamp(),
+        //             })
+        //     }
+        // })
+
+
+      </script>
+
+
+
+    </html>
+
+
+

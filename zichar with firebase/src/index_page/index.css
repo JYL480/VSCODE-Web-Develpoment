@@ -1,0 +1,439 @@
+
+
+ button{
+    width: 100%;
+    position: relative;
+    border: none;
+    border-radius: 5px;
+    background-color: rgba(255, 198, 0, 0.9900000095367432);
+    padding: 7px 25px;
+    cursor: pointer;
+    color: white;
+}
+
+*{
+    margin-left: 0px;
+    margin-left: 0px;
+    padding: 0 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    font-size: 18px;
+    max-width: 500em;
+}
+/* 
+body{ */
+    /* display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+} */
+.container{
+    width: 890px;
+    /* height: ; */
+    margin: auto;
+    transition: 0.5s;
+}
+header{
+    display: grid;
+    grid-template-columns: 1fr 50px;
+    margin-top: 50px;
+}
+header .shopping{
+    position: relative;
+    text-align: right;
+}
+header .shopping img{
+    width: 40px;
+}
+header .shopping span{
+    background: rgba(255, 198, 0, 0.9900000095367432);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    position: absolute;
+    top: -5px;
+    left: 80%;
+    padding: 3px 10px;
+}
+
+.containerPictures .layout{
+    width: 90%;
+    height: 90%;
+    
+    margin-left: auto;
+    margin-right: auto;
+    
+    display: grid;
+    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(4, 1fr);
+    gap: 13px;
+    /* align-items: center; */
+    /* margin-left: 70px; */
+    justify-content: center;
+
+   
+    
+    
+  }
+  .containerPictures img{
+    width: 130px;
+
+  }
+
+  
+  .containerPictures{
+    transition: 0.5s;
+  }
+
+
+
+  .containerPictures div{
+    text-align: center;
+    /* background-color: #DCE0E1; */
+    border: 2px solid rgba(255, 198, 0, 0.9900000095367432);
+    padding: 20px;
+    /* box-shadow: 0 50px 50px #757676; */
+    letter-spacing: 1px;
+  }
+  
+  .layout p{
+    text-align: center;
+
+  }
+
+  .layout .foodName{
+     font-size: 13px;
+     font-weight: bold;
+     width: auto;
+  }
+
+.container header h1{
+    margin-left: 50px;
+}
+
+.container header .shopping img {
+    /* Styles for the img element */
+    /* Example: */
+   margin-left: -100px;
+
+   width: 120px;
+  }
+  
+  .container header .shopping .quantity {
+    /* Styles for the span element */
+    /* Example: */
+    margin-left: -45px;
+  }
+
+.card{
+    position: fixed;
+    top:0;
+    left: 100%;
+    width: 400px;
+    background-color: #453E3B;
+    height: 100vh;
+    transition: 0.5s;
+}
+.active .card{
+    left: calc(100% - 400px);
+}
+.active .container{
+   transform: translateX(-200px);
+}
+
+.active .containerPictures{
+    transform: translateX(-200px);
+    transition: 0.5s;
+}
+
+.card h1{
+    color: #E8BC0E;
+    font-weight: 100;
+    margin: 0;
+    padding: 0 20px;
+    height: 80px;
+    display: flex;
+    align-items: center;
+}
+.card .checkOut{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+}
+
+.checkOut button{
+    width:200%;
+}
+
+
+.card .checkOut div{
+    border-radius: 3px;
+    background-color: #E8BC0E;
+    width: 100%;
+    height: 70px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+.card .checkOut div:nth-child(2){
+    background-color: #1C1F25;
+    color: #fff;
+}
+.listCard li{
+    width: 90%;
+    display: grid;
+    grid-template-columns: 100px repeat(3, 1fr);
+    gap: 8px;
+    grid-gap: 20px;
+}
+.listCard li div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.listCard li img{
+    width: 90%;
+}
+.listCard li button{
+    background-color: #fff5;
+    border: none;
+}
+.listCard .count{
+    margin: 0 10px;
+    color: white;
+}
+.listCard .titleThing{ 
+    color: white;
+}
+.listCard .titleThing{ 
+    color: white;
+}
+
+
+.card .removeAllButton{
+    width: auto;
+    left: 190px;
+}
+
+
+*{
+    margin-left: 0px;
+    margin-left: 0px;
+    padding: 10 0;
+    box-sizing: border-box;
+    font-family: 'poppins', sans-serif;
+    font-size: 18px;
+    max-width: 500em;
+  }
+  
+  
+  .header{
+    height: 50px;
+    width: 90%;
+    border-radius: 3px;
+    margin: 30px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+  }
+  
+  .logo{
+    width:130px;
+    height: auto;
+  }
+  
+  .menuBar{
+    display: flex;
+    gap: 20px;
+    justify-content: space-between;
+  }
+  .menuButton{
+    text-decoration: none;
+    color: black;
+  }
+  
+  body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+  }
+  
+  .backgroundImage{
+    margin-left: 0px;
+    margin-right: 0px;
+    width: 100.29%;
+    height: 420px
+  }
+  
+  
+  
+
+
+.action{
+    /* position: fixed; */
+    right: 30px;
+    top:20px
+}
+.action .profile{
+    border-radius: 50%;
+    cursor: pointer;
+    height: 30px;
+    overflow: hidden;
+    position: relative;
+    width: 30px;
+    background-color:rgba(255, 198, 0, 0.9900000095367432);
+    margin-top: -5px;
+}
+
+#profilePic{
+  font-size: larger;
+  margin-left: 5px;
+  margin-top: 3px; 
+}
+.action .profile img{
+    width: 100%;
+    top:0;
+    position: absolute;
+    object-fit: cover;
+    left: 0;
+    height: 100%;
+}
+.action .menuu{
+    background-color:#FFF;
+    /* box-sizing:0 5px 25px rgba(0,0,0,0.1); */
+    border-radius: 15px;
+    /* padding: 10px 20px; */
+    position: absolute;
+    right: 25px;
+    width: 200px;
+    transition: 0.5s;
+    top: 120px;
+    visibility: hidden;
+    opacity: 0;
+    background-color: rgba(255, 198, 0, 0.9900000095367432);
+}
+.action .menuu.active{
+    opacity: 1;
+    top: 80px;
+    visibility: visible;
+}
+/* .action .menu::before{
+    background-color:#fff;
+    content: '';
+    height: 20px;
+    position: absolute;
+    right: 30px;
+    transform:rotate(45deg);
+    top:-5px;
+    width: 20px;
+} */
+.action .menuu h3{
+    color: #555;
+    /* font-size: 16px; */
+    font-weight: 600;
+    margin-right: 500px;
+    
+}
+.action .menuu h3 div{
+    color: #818181;
+    font-size: 14px;
+    font-weight: 400;
+}
+.action .menuu ul li{
+    align-items: center;
+    border-top:1px solid rgba(0,0,0,0.05);
+    display: flex;
+    justify-content: left;
+    list-style: none;
+    padding: 10px 0px;
+    margin-left: 40px;
+    
+
+}
+.action .menuu ul li img{
+    max-width: 60px;
+    margin-left: 1000px;
+    opacity: 0.5;
+    transition:0.5s
+}
+.action .menuu ul li a{
+    display: inline-block;
+    color: #555;
+    font-size: 14px;
+    font-weight: 600;
+    padding-left: 15px;
+    text-decoration: none;
+    text-transform: uppercase;
+    transition: 0.5s;
+    
+}
+.action .menuu ul li:hover img{
+    opacity: 1;
+}
+.action .menuu ul li:hover a{
+    color:white;
+}
+
+.userAccountWord{
+  width: 120px;
+  /* margin: 0 0 ; */
+  margin-left: 20px;
+}
+
+
+.logOutThing{
+  display: inline-block;
+  color: #555;
+  font-size: 14px;
+  font-weight: 600;
+  padding-left: 15px;
+  text-decoration: none;
+  text-transform: uppercase;
+  transition: 0.5s;
+}
+
+.logOutThing:hover{
+  color:white;
+}
+#userName{
+  font-size: large;
+  color: black;
+  font-family: 'poppins', sans-serif;
+  font-weight: bold;
+}
+
+.bag{
+    height:  35px;
+    cursor: pointer;
+}
+
+.headerAddress{
+    text-align: center;
+}
+
+.addDetails input{
+    margin-top:5px;
+    /* margin-bottom: 10px; */
+}
+
+.addDetails button{
+    margin-top: 10px;
+}
+
+.active .addDetails{
+    
+    transform: translateX(-200px);
+    transition: 0.5s;
+}
+.addDetails{
+    transition: 0.5s;
+}
